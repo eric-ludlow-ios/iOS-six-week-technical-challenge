@@ -7,8 +7,9 @@
 //
 
 #import "ListViewController.h"
+#import "MatchedViewController.h"
 
-@interface ListViewController ()
+@interface ListViewController () <MatchedViewControllerDelegate>
 
 @end
 
@@ -46,6 +47,19 @@
                                           completion:nil];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"segueViewMatches"]) {
+        
+        MatchedViewController *matchedViewControllerInstance = segue.destinationViewController;
+        matchedViewControllerInstance.delegate = self;
+    }
+}
+
+- (void)matchedViewControllerDidFinish:(MatchedViewController *)matchedViewController {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
