@@ -6,15 +6,16 @@
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "ListsViewController.h"
+#import "WorkbookViewController.h"
+#import "ListViewController.h"
 
-@interface ListsViewController ()
+@interface WorkbookViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *listsTableView;
 
 @end
 
-@implementation ListsViewController
+@implementation WorkbookViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +30,15 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"segueViewList"]) {
-        <#statements#>
+        
+        ListViewController *destinationViewControllerInstance = segue.destinationViewController;
+        
+        NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
+        
+        //to be implemented once the models and model controllers are up
+//        destinationViewControllerInstance.entity = [EntityController sharedInstance].listOfEntities[indexPath.row];
+        //for now...
+        destinationViewControllerInstance.title = @"List 1";
     }
     
 //    if ([segue.identifier isEqualToString:@"viewEntry"]) {

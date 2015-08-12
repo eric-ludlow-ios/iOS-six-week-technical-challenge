@@ -1,14 +1,14 @@
 //
-//  ListsViewTableViewDataSource.m
+//  WorkbookViewTableViewDataSource.m
 //  iOS-six-week-technical-challenge
 //
 //  Created by Rutan on 8/12/15.
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "ListsViewTableViewDataSource.h"
+#import "WorkbookViewTableViewDataSource.h"
 
-@implementation ListsViewTableViewDataSource
+@implementation WorkbookViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -17,11 +17,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"listsCell"];
+    UITableViewCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
     
-    cell.textLabel.text = @"List 1";
+    listCell.textLabel.text = @"List 1";
     
-    return cell;
+    return listCell;
 }
 
 @end
