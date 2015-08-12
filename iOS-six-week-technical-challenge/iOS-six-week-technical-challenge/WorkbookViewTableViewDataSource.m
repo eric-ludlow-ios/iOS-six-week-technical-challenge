@@ -7,19 +7,23 @@
 //
 
 #import "WorkbookViewTableViewDataSource.h"
+#import "XQListController.h"
+#import "XQList.h"
 
 @implementation WorkbookViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return [XQListController sharedInstance].allLists.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
     
-    listCell.textLabel.text = @"List 1";
+    XQList *list = [XQListController sharedInstance].allLists[indexPath.row];
+    
+    listCell.textLabel.text = list.nameOfList;
     
     return listCell;
 }

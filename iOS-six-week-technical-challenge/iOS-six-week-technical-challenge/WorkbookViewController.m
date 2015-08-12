@@ -8,6 +8,8 @@
 
 #import "WorkbookViewController.h"
 #import "ListViewController.h"
+#import "XQListController.h"
+#import "XQList.h"
 
 @interface WorkbookViewController ()
 
@@ -20,6 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    [self.listsTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,14 +43,22 @@
     
     [addNewListNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
-        //add code here to add new list name to listArray?
+        //configure text field prior to displaying?
     }];
     
     [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               
-                                                              //add code here to add new list name to listArray?
+                                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                                  UITextField *textField = addNewListNameAlert.textFields[0];
+                                                                  
+                                                                  XQList *list = [[XQListController sharedInstance] createList];
+                                                                  list.nameOfList = textField.text;
+                                                                  [[XQListController sharedInstance] save];
+                                                                  
+                                                                  [self.listsTableView reloadData];
+                                                              });
                                                           }]];
     
     [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
@@ -61,7 +77,7 @@
         
         ListViewController *destinationViewControllerInstance = segue.destinationViewController;
         
-        NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
+        //NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
         
         //to be implemented once the models and model controllers are up
 //        destinationViewControllerInstance.entity = [EntityController sharedInstance].listOfEntities[indexPath.row];
