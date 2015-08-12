@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LSz-yo-B5z">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Entity Lists-->
@@ -62,8 +63,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-sc-A9o">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8Ia-sc-A9o">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="entityCell" id="X5c-h1-nOu">
@@ -74,13 +75,37 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="L5f-cb-5nl" id="GCN-wA-CcK"/>
+                                </connections>
                             </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOI-HW-zeH">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="GC3-yg-ewb"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" id="TNs-sQ-A7c"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Ia-sc-A9o" firstAttribute="leading" secondItem="jkT-55-WZa" secondAttribute="leadingMargin" constant="-16" id="9NZ-VX-Vgh"/>
+                            <constraint firstItem="AOI-HW-zeH" firstAttribute="leading" secondItem="jkT-55-WZa" secondAttribute="leadingMargin" constant="-16" id="Igv-0s-Fz3"/>
+                            <constraint firstItem="8Ia-sc-A9o" firstAttribute="top" secondItem="n0R-VS-hAO" secondAttribute="bottom" constant="-64" id="W8Y-9p-fCa"/>
+                            <constraint firstItem="5Gm-Z0-lQM" firstAttribute="top" secondItem="AOI-HW-zeH" secondAttribute="bottom" id="XPS-Y9-cu5"/>
+                            <constraint firstItem="AOI-HW-zeH" firstAttribute="top" secondItem="8Ia-sc-A9o" secondAttribute="bottom" id="brD-UH-2S0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AOI-HW-zeH" secondAttribute="trailing" constant="-16" id="nE6-gs-38M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Ia-sc-A9o" secondAttribute="trailing" constant="-16" id="tky-27-ADk"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="List of Entities" id="Jfx-3o-Ezx"/>
+                    <navigationItem key="navigationItem" title="List of Entities" id="Jfx-3o-Ezx">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4w7-0J-onb"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gaw-RK-vMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="L5f-cb-5nl" customClass="ListViewTableViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="1945" y="364"/>
         </scene>

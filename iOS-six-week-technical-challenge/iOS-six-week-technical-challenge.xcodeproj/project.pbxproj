@@ -16,6 +16,7 @@
 		0F33C01D1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */; };
 		0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */; };
 		0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */; };
+		0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkbookViewTableViewDataSource.m; sourceTree = "<group>"; };
 		0FD3DC0B1B7BAC3200495D44 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		0FD3DC0E1B7BB26C00495D44 /* ListViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewTableViewDataSource.h; sourceTree = "<group>"; };
+		0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewTableViewDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */,
 				0FD3DC0B1B7BAC3200495D44 /* ListViewController.h */,
 				0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */,
+				0FD3DC0E1B7BB26C00495D44 /* ListViewTableViewDataSource.h */,
+				0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */,
 				0F33C00A1B7B9C53009D141D /* Main.storyboard */,
 				0F33C00D1B7B9C53009D141D /* Images.xcassets */,
 				0F33C00F1B7B9C53009D141D /* LaunchScreen.xib */,
@@ -232,6 +237,7 @@
 				0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */,
 				0F33C0091B7B9C53009D141D /* WorkbookViewController.m in Sources */,
 				0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */,
+				0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */,
 				0F33C0061B7B9C53009D141D /* AppDelegate.m in Sources */,
 				0F33C0031B7B9C53009D141D /* main.m in Sources */,
 			);
