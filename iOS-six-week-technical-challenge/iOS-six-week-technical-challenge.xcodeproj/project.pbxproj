@@ -25,6 +25,7 @@
 		0FD3DC2E1B7BDEEA00495D44 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */; };
 		0FD3DC371B7BED7200495D44 /* XQList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC361B7BED7200495D44 /* XQList.m */; };
 		0FD3DC3A1B7BED7300495D44 /* XQEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC391B7BED7300495D44 /* XQEntity.m */; };
+		0FD3DC3D1B7BEEB300495D44 /* XQListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3C1B7BEEB300495D44 /* XQListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		0FD3DC361B7BED7200495D44 /* XQList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQList.m; sourceTree = "<group>"; };
 		0FD3DC381B7BED7300495D44 /* XQEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQEntity.h; sourceTree = "<group>"; };
 		0FD3DC391B7BED7300495D44 /* XQEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQEntity.m; sourceTree = "<group>"; };
+		0FD3DC3B1B7BEEB300495D44 /* XQListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQListController.h; sourceTree = "<group>"; };
+		0FD3DC3C1B7BEEB300495D44 /* XQListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				0FD3DC391B7BED7300495D44 /* XQEntity.m */,
 				0FD3DC351B7BED7200495D44 /* XQList.h */,
 				0FD3DC361B7BED7200495D44 /* XQList.m */,
+				0FD3DC3B1B7BEEB300495D44 /* XQListController.h */,
+				0FD3DC3C1B7BEEB300495D44 /* XQListController.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD3DC3D1B7BEEB300495D44 /* XQListController.m in Sources */,
 				0FD3DC3A1B7BED7300495D44 /* XQEntity.m in Sources */,
 				0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */,
 				0F33C0091B7B9C53009D141D /* WorkbookViewController.m in Sources */,
