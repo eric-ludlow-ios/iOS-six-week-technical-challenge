@@ -40,7 +40,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Workbook: Lists" id="qBe-oW-aO5">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gg8-gy-SFU"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gg8-gy-SFU">
+                            <connections>
+                                <action selector="addNewListPressed:" destination="vXZ-lx-hvc" id="WNl-KX-AfP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="listsTableView" destination="RSH-XK-rGl" id="8ZY-5M-fsY"/>
@@ -101,7 +105,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List of Entities" id="Jfx-3o-Ezx">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4w7-0J-onb"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4w7-0J-onb">
+                            <connections>
+                                <action selector="addNewEntityButtonPressed:" destination="TsK-jP-B91" id="5XC-qK-C0K"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gaw-RK-vMT" userLabel="First Responder" sceneMemberID="firstResponder"/>

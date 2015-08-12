@@ -27,6 +27,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)addNewListPressed:(id)sender {
+    
+    UIAlertController *addNewListNameAlert = [UIAlertController alertControllerWithTitle:@"Add List"
+                                                                                 message:@"Type the name of a new list:"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [addNewListNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        
+        //add code here to add new list name to listArray?
+    }];
+    
+    [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              
+                                                              //add code here to add new list name to listArray?
+                                                          }]];
+    
+    [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleDestructive
+                                                          handler:nil]];
+    
+    [self.navigationController presentViewController:addNewListNameAlert
+                                            animated:YES
+                                          completion:nil];
+}
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"segueViewList"]) {
@@ -40,17 +68,6 @@
         //for now...
         destinationViewControllerInstance.title = @"List 1";
     }
-    
-//    if ([segue.identifier isEqualToString:@"viewEntry"]) {
-//        
-//        //pass the selected entry to the DetailViewController (you will need to import the DetailViewController and the EntryController, and get the IndexPath of the selected cell)
-//        
-//        DetailViewController *destinationViewControllerInstance = segue.destinationViewController;
-//        
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        
-//        destinationViewControllerInstance.entry = [EntryController sharedInstance].allEntries[indexPath.row];
-//    }
 }
 
 @end

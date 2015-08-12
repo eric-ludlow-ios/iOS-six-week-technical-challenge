@@ -19,6 +19,34 @@
     // Do any additional setup after loading the view.
 }
 
+- (IBAction)addNewEntityButtonPressed:(id)sender {
+    
+    UIAlertController *addNewEntityNameAlert = [UIAlertController alertControllerWithTitle:@"Add Entity to List"
+                                                                                 message:@"Type the name of a new entity:"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+    
+    [addNewEntityNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        
+        //add code here to add new list name to listArray?
+    }];
+    
+    [addNewEntityNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
+                                                            style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction *action) {
+                                                              
+                                                              //add code here to add new list name to listArray?
+                                                          }]];
+    
+    [addNewEntityNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleDestructive
+                                                          handler:nil]];
+    
+    [self.navigationController presentViewController:addNewEntityNameAlert
+                                            animated:YES
+                                          completion:nil];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
