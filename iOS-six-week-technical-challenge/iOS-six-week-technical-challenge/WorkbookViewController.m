@@ -11,9 +11,10 @@
 #import "XQListController.h"
 #import "XQList.h"
 
-@interface WorkbookViewController ()
+@interface WorkbookViewController () <UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *listsTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
@@ -22,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.editButton.title = @"Edit";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,6 +73,20 @@
                                           completion:nil];
 }
 
+- (IBAction)editButtonPressed:(id)sender {
+    
+    BOOL shouldEdit;
+    if (self.listsTableView.editing == NO) {
+        shouldEdit = YES;
+        self.editButton.title = @"Done";
+    } else {
+        shouldEdit = NO;
+        self.editButton.title = @"Edit";
+    }
+    
+    [self.listsTableView setEditing:shouldEdit animated:YES];
+
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -85,6 +102,20 @@
         destinationViewControllerInstance.title = @"List 1";
     }
 }
+
+# pragma mark - table view delegate method
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView.editing) {
+        
+        return UITableViewCellEditingStyleDelete;
+    } else {
+        
+        return UITableViewCellEditingStyleNone;
+    }
+}
+
 
 @end
 

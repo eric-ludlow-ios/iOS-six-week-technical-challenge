@@ -28,4 +28,13 @@
     return listCell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    XQList *list = [XQListController sharedInstance].allLists[indexPath.row];
+    [[XQListController sharedInstance] removeList:list];
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
 @end
