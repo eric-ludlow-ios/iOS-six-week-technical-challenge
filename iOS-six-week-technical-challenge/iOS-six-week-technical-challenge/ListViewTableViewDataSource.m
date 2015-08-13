@@ -7,21 +7,52 @@
 //
 
 #import "ListViewTableViewDataSource.h"
+#import "XQListController.h"
+#import "XQList.h"
+#import "XQEntity.h"
 
 @implementation ListViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+//    XQList *list = [XQListController sharedInstance].allLists[self.listIndex];
+//    
+//    return list.listEntities.count;
+    
+    
+    return [self fakeData].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *entityCell = [tableView dequeueReusableCellWithIdentifier:@"entityCell"];
     
-    entityCell.textLabel.text = @"Entity 1";
+//    XQList *list = [XQListController sharedInstance].allLists[self.listIndex];
+//    
+//    XQEntity *entity = list.listEntities[indexPath.row];
+//    
+//    entityCell.textLabel.text = entity.nameOfEntity;
+    
+    entityCell.textLabel.text = [self fakeData][indexPath.row];
     
     return entityCell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    XQList *list = [XQListController sharedInstance].allLists[self.listIndex];
+//    XQEntity *entity = list.listEntities[indexPath.row];
+//    
+//    [list removeListEntitiesObject:entity];
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+- (NSArray *)fakeData {
+    
+    return @[@"student 1", @"student 2", @"student 3", @"student 4", @"student 5"];
+}
+
 @end
+
+ 

@@ -10,4 +10,8 @@
 
 @interface MatchedViewTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *leadingLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *trailingLabel;
+
 @end

@@ -14,15 +14,19 @@
 @interface XQList : NSManagedObject
 
 @property (nonatomic, retain) NSString * nameOfList;
-@property (nonatomic, retain) NSSet *listEntities;
-
+@property (nonatomic, retain) NSOrderedSet *listEntities;
 @end
 
 @interface XQList (CoreDataGeneratedAccessors)
 
+- (void)insertObject:(XQEntity *)value inListEntitiesAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromListEntitiesAtIndex:(NSUInteger)idx;
+- (void)insertListEntities:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removeListEntitiesAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInListEntitiesAtIndex:(NSUInteger)idx withObject:(XQEntity *)value;
+- (void)replaceListEntitiesAtIndexes:(NSIndexSet *)indexes withListEntities:(NSArray *)values;
 - (void)addListEntitiesObject:(XQEntity *)value;
 - (void)removeListEntitiesObject:(XQEntity *)value;
-- (void)addListEntities:(NSSet *)values;
-- (void)removeListEntities:(NSSet *)values;
-
+- (void)addListEntities:(NSOrderedSet *)values;
+- (void)removeListEntities:(NSOrderedSet *)values;
 @end

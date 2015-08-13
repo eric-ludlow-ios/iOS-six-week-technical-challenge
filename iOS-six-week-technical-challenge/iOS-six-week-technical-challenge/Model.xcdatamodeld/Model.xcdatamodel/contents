@@ -6,7 +6,7 @@
     </entity>
     <entity name="XQList" representedClassName="XQList" isAbstract="YES" syncable="YES">
         <attribute name="nameOfList" attributeType="String" syncable="YES"/>
-        <relationship name="listEntities" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="XQEntity" inverseName="entityList" inverseEntity="XQEntity" syncable="YES"/>
+        <relationship name="listEntities" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XQEntity" inverseName="entityList" inverseEntity="XQEntity" syncable="YES"/>
     </entity>
     <elements>
         <element name="XQEntity" positionX="187" positionY="-0" width="128" height="73"/>
