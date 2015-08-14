@@ -14,12 +14,18 @@
 		0F33C00E1B7B9C53009D141D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00D1B7B9C53009D141D /* Images.xcassets */; };
 		0F33C0111B7B9C53009D141D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00F1B7B9C53009D141D /* LaunchScreen.xib */; };
 		0F33C01D1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */; };
+		0F7997751B7D975900D5922E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7997741B7D975900D5922E /* Item.m */; };
+		0F7997781B7D975900D5922E /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7997771B7D975900D5922E /* List.m */; };
 		0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */; };
 		0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */; };
 		0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */; };
 		0FD3DC151B7BC06200495D44 /* MatchedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC141B7BC06200495D44 /* MatchedViewController.m */; };
 		0FD3DC181B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC171B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m */; };
 		0FD3DC1B1B7BC0DC00495D44 /* MatchedViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC1A1B7BC0DC00495D44 /* MatchedViewTableViewCell.m */; };
+		0FD3DC291B7BDE9A00495D44 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC281B7BDE9A00495D44 /* Stack.m */; };
+		0FD3DC2B1B7BDEBC00495D44 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */; };
+		0FD3DC2E1B7BDEEA00495D44 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */; };
+		0FD3DC3D1B7BEEB300495D44 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3C1B7BEEB300495D44 /* ModelController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +52,10 @@
 		0F33C0161B7B9C53009D141D /* iOS-six-week-technical-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-six-week-technical-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33C01B1B7B9C53009D141D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_six_week_technical_challengeTests.m; sourceTree = "<group>"; };
+		0F7997731B7D975900D5922E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		0F7997741B7D975900D5922E /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		0F7997761B7D975900D5922E /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		0F7997771B7D975900D5922E /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		0FD3DC081B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkbookViewTableViewDataSource.h; sourceTree = "<group>"; };
 		0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkbookViewTableViewDataSource.m; sourceTree = "<group>"; };
 		0FD3DC0B1B7BAC3200495D44 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -58,6 +68,12 @@
 		0FD3DC171B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchedViewTableViewDataSource.m; sourceTree = "<group>"; };
 		0FD3DC191B7BC0DC00495D44 /* MatchedViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchedViewTableViewCell.h; sourceTree = "<group>"; };
 		0FD3DC1A1B7BC0DC00495D44 /* MatchedViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchedViewTableViewCell.m; sourceTree = "<group>"; };
+		0FD3DC271B7BDE9A00495D44 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		0FD3DC281B7BDE9A00495D44 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0FD3DC2D1B7BDEEA00495D44 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		0FD3DC3B1B7BEEB300495D44 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
+		0FD3DC3C1B7BEEB300495D44 /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD3DC2B1B7BDEBC00495D44 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,7 @@
 		0F33BFF41B7B9C53009D141D = {
 			isa = PBXGroup;
 			children = (
+				0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */,
 				0F33BFFF1B7B9C53009D141D /* iOS-six-week-technical-challenge */,
 				0F33C0191B7B9C53009D141D /* iOS-six-week-technical-challengeTests */,
 				0F33BFFE1B7B9C53009D141D /* Products */,
@@ -105,6 +123,7 @@
 				0FD3DC111B7BC00F00495D44 /* Workbook View */,
 				0FD3DC121B7BC01F00495D44 /* List View */,
 				0FD3DC1C1B7BC0E900495D44 /* Matched View */,
+				0FD3DC201B7BD8CC00495D44 /* Models */,
 				0F33C00D1B7B9C53009D141D /* Images.xcassets */,
 				0F33C00F1B7B9C53009D141D /* LaunchScreen.xib */,
 				0F33C0001B7B9C53009D141D /* Supporting Files */,
@@ -171,6 +190,22 @@
 				0FD3DC1A1B7BC0DC00495D44 /* MatchedViewTableViewCell.m */,
 			);
 			name = "Matched View";
+			sourceTree = "<group>";
+		};
+		0FD3DC201B7BD8CC00495D44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FD3DC271B7BDE9A00495D44 /* Stack.h */,
+				0FD3DC281B7BDE9A00495D44 /* Stack.m */,
+				0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */,
+				0F7997731B7D975900D5922E /* Item.h */,
+				0F7997741B7D975900D5922E /* Item.m */,
+				0F7997761B7D975900D5922E /* List.h */,
+				0F7997771B7D975900D5922E /* List.m */,
+				0FD3DC3B1B7BEEB300495D44 /* ModelController.h */,
+				0FD3DC3C1B7BEEB300495D44 /* ModelController.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,14 +308,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F7997751B7D975900D5922E /* Item.m in Sources */,
+				0FD3DC3D1B7BEEB300495D44 /* ModelController.m in Sources */,
 				0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */,
 				0F33C0091B7B9C53009D141D /* WorkbookViewController.m in Sources */,
 				0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */,
 				0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */,
 				0FD3DC181B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m in Sources */,
+				0F7997781B7D975900D5922E /* List.m in Sources */,
 				0F33C0061B7B9C53009D141D /* AppDelegate.m in Sources */,
 				0FD3DC151B7BC06200495D44 /* MatchedViewController.m in Sources */,
 				0FD3DC1B1B7BC0DC00495D44 /* MatchedViewTableViewCell.m in Sources */,
+				0FD3DC291B7BDE9A00495D44 /* Stack.m in Sources */,
+				0FD3DC2E1B7BDEEA00495D44 /* Model.xcdatamodeld in Sources */,
 				0F33C0031B7B9C53009D141D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +528,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0FD3DC2D1B7BDEEA00495D44 /* Model.xcdatamodel */,
+			);
+			currentVersion = 0FD3DC2D1B7BDEEA00495D44 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0F33BFF51B7B9C53009D141D /* Project object */;
 }

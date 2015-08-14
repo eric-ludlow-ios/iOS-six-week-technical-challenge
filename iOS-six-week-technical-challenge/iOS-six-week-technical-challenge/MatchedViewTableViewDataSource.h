@@ -11,4 +11,6 @@
 
 @interface MatchedViewTableViewDataSource : NSObject <UITableViewDataSource>
 
+@property (strong, nonatomic) NSArray *randomArray;
+
 @end

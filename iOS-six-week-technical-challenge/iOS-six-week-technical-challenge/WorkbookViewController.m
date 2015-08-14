@@ -8,10 +8,14 @@
 
 #import "WorkbookViewController.h"
 #import "ListViewController.h"
+#import "ModelController.h"
+#import "List.h"
+#import "ListViewTableViewDataSource.h"
 
-@interface WorkbookViewController ()
+@interface WorkbookViewController () <UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *listsTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
@@ -20,11 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    self.editButton.title = @"Edit";
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    
+    [self.listsTableView reloadData];
 }
 
 - (IBAction)addNewListPressed:(id)sender {
@@ -35,14 +42,22 @@
     
     [addNewListNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
-        //add code here to add new list name to listArray?
+        //configure text field prior to displaying?
     }];
     
     [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               
-                                                              //add code here to add new list name to listArray?
+                                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                                  UITextField *textField = addNewListNameAlert.textFields[0];
+                                                                  
+                                                                  List *list = [[ModelController sharedInstance] createList];
+                                                                  list.nameOfList = textField.text;
+                                                                  [[ModelController sharedInstance] save];
+                                                                  
+                                                                  [self.listsTableView reloadData];
+                                                              });
                                                           }]];
     
     [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
@@ -54,6 +69,20 @@
                                           completion:nil];
 }
 
+- (IBAction)editButtonPressed:(id)sender {
+    
+    BOOL shouldEdit;
+    if (self.listsTableView.editing == NO) {
+        shouldEdit = YES;
+        self.editButton.title = @"Done";
+    } else {
+        shouldEdit = NO;
+        self.editButton.title = @"Edit";
+    }
+    
+    [self.listsTableView setEditing:shouldEdit animated:YES];
+
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -63,20 +92,34 @@
         
         NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
         
-        //to be implemented once the models and model controllers are up
-//        destinationViewControllerInstance.entity = [EntityController sharedInstance].listOfEntities[indexPath.row];
-        //for now...
-        destinationViewControllerInstance.title = @"List 1";
+        List *list = [ModelController sharedInstance].allLists[indexPath.row];
+        
+        destinationViewControllerInstance.list = list;
+        
+        [ModelController sharedInstance].currentList = list;
     }
+}
+
+# pragma mark - table view delegate method
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView.editing) {
+        
+        return UITableViewCellEditingStyleDelete;
+    } else {
+        
+        return UITableViewCellEditingStyleNone;
+    }
+}
+
+# pragma mark - memory warning method
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 @end
 
 
-//Write a Pair Randomizer application that takes a list of objects and pairs them together. Potential use cases may be creating an app for Pair Programming teams, or matching people for a Secret Santa gift exchange. Add the following features:
-//
-//Add entities to a list
-//Edit the entities
-//Display a list of the added entities, with some visible annotation to convey that two of the entities have been paired together
-//Include a button that allows me to randomize the list
-//Persist the list of entities

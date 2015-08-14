@@ -17,6 +17,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    //Write a Pair Randomizer application that takes a list of objects and pairs them together. Potential use cases may be creating an app for Pair Programming teams, or matching people for a Secret Santa gift exchange. Add the following features:
+    //
+    //Add entities to a list
+    //Edit the entities
+    //Display a list of the added entities, with some visible annotation to convey that two of the entities have been paired together
+    //Include a button that allows me to randomize the list
+    //Persist the list of entities
+    
+    
     return YES;
 }
 

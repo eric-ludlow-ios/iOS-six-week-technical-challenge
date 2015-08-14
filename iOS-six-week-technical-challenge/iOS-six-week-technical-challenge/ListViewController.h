@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "List.h"
 
 @interface ListViewController : UIViewController
+
+@property (strong, nonatomic) List *list;
+@property (weak, nonatomic, readonly) IBOutlet UITableView *itemsTableView;
 
 @end

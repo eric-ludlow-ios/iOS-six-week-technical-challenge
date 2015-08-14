@@ -8,8 +8,14 @@
 
 #import "ListViewController.h"
 #import "MatchedViewController.h"
+#import "ModelController.h"
+#import "Item.h"
+#import "Stack.h"
 
-@interface ListViewController () <MatchedViewControllerDelegate>
+@interface ListViewController () <UITableViewDelegate, MatchedViewControllerDelegate>
+
+@property (weak, nonatomic, readwrite) IBOutlet UITableView *itemsTableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
@@ -18,33 +24,67 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = self.list.nameOfList;
+    
+    self.editButton.title = @"Edit";
 }
 
-- (IBAction)addNewEntityButtonPressed:(id)sender {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     
-    UIAlertController *addNewEntityNameAlert = [UIAlertController alertControllerWithTitle:@"Add Entity to List"
-                                                                                 message:@"Type the name of a new entity:"
+    [self.itemsTableView reloadData];
+}
+
+- (IBAction)addNewItemButtonPressed:(id)sender {
+    
+    UIAlertController *addNewItemNameAlert = [UIAlertController alertControllerWithTitle:@"Add Item to List"
+                                                                                 message:@"Type the name of a new person or item:"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
     
-    [addNewEntityNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    [addNewItemNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
-        //add code here to add new list name to listArray?
+        //configure text field prior to displaying?
     }];
     
-    [addNewEntityNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
+    [addNewItemNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               
-                                                              //add code here to add new list name to listArray?
+                                                              dispatch_async(dispatch_get_main_queue(), ^{
+                                                                  UITextField *textField = addNewItemNameAlert.textFields[0];
+                                                                  
+                                                                  Item *item = [[ModelController sharedInstance] createItem];
+                                                                  item.nameOfItem = textField.text;
+                                                                  item.myList = self.list;
+                                                                  
+                                                                  [[ModelController sharedInstance] save];
+                                                                  
+                                                                  [self.itemsTableView reloadData];
+                                                              });
                                                           }]];
     
-    [addNewEntityNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [addNewItemNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                             style:UIAlertActionStyleDestructive
                                                           handler:nil]];
     
-    [self.navigationController presentViewController:addNewEntityNameAlert
+    [self.navigationController presentViewController:addNewItemNameAlert
                                             animated:YES
                                           completion:nil];
+}
+
+- (IBAction)editButtonPressed:(id)sender {
+    
+    BOOL shouldEdit;
+    if (self.itemsTableView.editing == NO) {
+        shouldEdit = YES;
+        self.editButton.title = @"Done";
+    } else {
+        shouldEdit = NO;
+        self.editButton.title = @"Edit";
+    }
+    
+    [self.itemsTableView setEditing:shouldEdit animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -52,6 +92,8 @@
     if ([segue.identifier isEqualToString:@"segueViewMatches"]) {
         
         MatchedViewController *matchedViewControllerInstance = segue.destinationViewController;
+        
+        matchedViewControllerInstance.list = self.list;
         matchedViewControllerInstance.delegate = self;
     }
 }
@@ -60,6 +102,21 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+# pragma mark - table view delegate method
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView.editing) {
+        
+        return UITableViewCellEditingStyleDelete;
+    } else {
+        
+        return UITableViewCellEditingStyleNone;
+    }
+}
+
+# pragma mark - memory warning method
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -7,21 +7,41 @@
 //
 
 #import "ListViewTableViewDataSource.h"
+#import "ModelController.h"
+#import "List.h"
+#import "Item.h"
 
 @implementation ListViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    NSArray *itemArray = [ModelController sharedInstance].currentItems;
+    
+    return itemArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *entityCell = [tableView dequeueReusableCellWithIdentifier:@"entityCell"];
+    UITableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:@"itemCell"];
     
-    entityCell.textLabel.text = @"Entity 1";
+    NSArray *itemArray = [ModelController sharedInstance].currentItems;
     
-    return entityCell;
+    Item *item = itemArray[indexPath.row];
+    
+    itemCell.textLabel.text = item.nameOfItem;
+    
+    return itemCell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    Item *item = [ModelController sharedInstance].currentItems[indexPath.row];
+    
+    [[ModelController sharedInstance] removeItem:item];
+    
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 @end
+
+ 

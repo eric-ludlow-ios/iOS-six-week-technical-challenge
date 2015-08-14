@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "List.h"
 
 
 @protocol MatchedViewControllerDelegate;
@@ -15,7 +16,7 @@
 @interface MatchedViewController : UIViewController
 
 @property (weak, nonatomic) id<MatchedViewControllerDelegate> delegate;
-
+@property (strong, nonatomic) List *list;
 
 @end
 

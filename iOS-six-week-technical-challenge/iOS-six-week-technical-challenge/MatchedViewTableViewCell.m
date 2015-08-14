@@ -8,7 +8,10 @@
 
 #import "MatchedViewTableViewCell.h"
 
+
 @implementation MatchedViewTableViewCell
+
+@synthesize matchedImageView;
 
 - (void)awakeFromNib {
     // Initialization code
