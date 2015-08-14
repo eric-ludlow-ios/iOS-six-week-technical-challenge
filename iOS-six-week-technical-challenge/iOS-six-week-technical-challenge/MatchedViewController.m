@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = [NSString stringWithFormat:@"%@: Matches", self.list.nameOfList];
+    self.navigationItem.title = self.currentTitle;
 }
 
 - (IBAction)doneButtonPressed:(id)sender {

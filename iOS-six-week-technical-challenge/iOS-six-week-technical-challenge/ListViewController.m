@@ -24,9 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.title = self.list.nameOfList;
-    
+        
     self.editButton.title = @"Edit";
 }
 
@@ -56,7 +54,7 @@
                                                                   
                                                                   Item *item = [[ModelController sharedInstance] createItem];
                                                                   item.nameOfItem = textField.text;
-                                                                  item.myList = self.list;
+                                                                  item.myList = [ModelController sharedInstance].currentList;
                                                                   
                                                                   [[ModelController sharedInstance] save];
                                                                   
@@ -89,13 +87,35 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([segue.identifier isEqualToString:@"segueViewMatches"]) {
+    MatchedViewController *matchedViewControllerInstance = segue.destinationViewController;
+    
+    matchedViewControllerInstance.delegate = self;
+    
+    NSString *subtitle = @"subtitle";
+
+    if ([segue.identifier isEqualToString:@"segueAssignments"]) {
         
-        MatchedViewController *matchedViewControllerInstance = segue.destinationViewController;
+        subtitle = @"Assignments";
         
-        matchedViewControllerInstance.list = self.list;
-        matchedViewControllerInstance.delegate = self;
+        [ModelController sharedInstance].matchType = MatchedViewMatchTypeAssign;
     }
+
+    if ([segue.identifier isEqualToString:@"seguePairings"]) {
+        
+        subtitle = @"Pairings";
+        
+        [ModelController sharedInstance].matchType = MatchedViewMatchTypePair;
+    }
+    
+    if ([segue.identifier isEqualToString:@"segueToList"]) {
+        
+        subtitle = @"Assign To List";
+        
+        [ModelController sharedInstance].matchType = MatchedViewMatchTypeToList;
+    }
+    
+    matchedViewControllerInstance.currentTitle = [NSString stringWithFormat:@"%@: %@", self.title, subtitle];
+
 }
 
 - (void)matchedViewControllerDidFinish:(MatchedViewController *)matchedViewController {

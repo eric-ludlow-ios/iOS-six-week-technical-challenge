@@ -94,7 +94,7 @@
         
         List *list = [ModelController sharedInstance].allLists[indexPath.row];
         
-        destinationViewControllerInstance.list = list;
+        destinationViewControllerInstance.title = list.nameOfList;
         
         [ModelController sharedInstance].currentList = list;
     }
