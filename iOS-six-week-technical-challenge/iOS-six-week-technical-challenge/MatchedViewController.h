@@ -16,7 +16,7 @@
 @interface MatchedViewController : UIViewController
 
 @property (weak, nonatomic) id<MatchedViewControllerDelegate> delegate;
-@property (strong, nonatomic) List *list;
+@property (strong, nonatomic) NSString *currentTitle;
 
 @end
 

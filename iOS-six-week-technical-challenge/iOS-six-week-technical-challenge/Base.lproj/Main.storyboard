@@ -109,11 +109,15 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="peY-tE-H7n"/>
-                                    <barButtonItem title="1-way" id="TNs-sQ-A7c"/>
+                                    <barButtonItem title="1-way" id="TNs-sQ-A7c">
+                                        <connections>
+                                            <segue destination="633-oP-CSM" kind="presentation" identifier="segueAssignments" id="Krj-x2-1nz"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fFF-om-FE3"/>
                                     <barButtonItem title="2-way" id="jun-WC-iIB">
                                         <connections>
-                                            <segue destination="633-oP-CSM" kind="presentation" identifier="segueViewMatches" id="rbw-gx-eYt"/>
+                                            <segue destination="633-oP-CSM" kind="presentation" identifier="seguePairings" id="rbw-gx-eYt"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pen-0H-Wky"/>
@@ -269,4 +273,7 @@
             <point key="canvasLocation" x="576" y="364"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Krj-x2-1nz"/>
+    </inferredMetricsTieBreakers>
 </document>
