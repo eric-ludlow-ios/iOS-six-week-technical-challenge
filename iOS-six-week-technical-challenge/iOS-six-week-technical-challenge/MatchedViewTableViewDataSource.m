@@ -23,9 +23,27 @@
     
     MatchedViewTableViewCell *matchedCell = [tableView dequeueReusableCellWithIdentifier:@"matchedItemsCell"];
     
-    matchedCell.leadingLabel.text = self.randomArray[indexPath.row];
-    matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrows_back_forward"];
-    matchedCell.trailingLabel.text = self.randomArray[((self.randomArray.count / 2) + indexPath.row)];
+    switch ([ModelController sharedInstance].matchType) {
+        case MatchedViewMatchTypeAssign: {
+            
+            Item *item = [self items][indexPath.row];
+            matchedCell.leadingLabel.text = item.nameOfItem;
+            matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrow_forward"];
+            matchedCell.trailingLabel.text = self.randomArray[indexPath.row];
+            break;
+        }
+        case MatchedViewMatchTypePair:
+            
+            matchedCell.leadingLabel.text = self.randomArray[indexPath.row];
+            matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrows_back_forward"];
+            matchedCell.trailingLabel.text = self.randomArray[[self numberOfRows] + indexPath.row];
+            break;
+            
+        default:
+            break;
+    }
+    
+    
     
     return matchedCell;
 }
@@ -37,7 +55,23 @@
 
 - (NSInteger)numberOfRows {
     
-    return (self.randomArray.count / 2);
+    switch ([ModelController sharedInstance].matchType) {
+        case MatchedViewMatchTypeAssign:
+        case MatchedViewMatchTypeToList:
+            
+            return (self.randomArray.count);
+            break;
+        
+        case MatchedViewMatchTypePair:
+            
+            return (self.randomArray.count / 2);
+            break;
+            
+        default:
+            
+            return 0;
+            break;
+    }
 }
 
 - (NSArray *)randomizeArray:(NSArray *)array {
@@ -48,8 +82,11 @@
         [originalArray addObject:item.nameOfItem];
     }
     
-    if ((array.count % 2) != 0) {
-        [originalArray addObject:@"Wildcard"];
+    if ([ModelController sharedInstance].matchType == MatchedViewMatchTypePair) {
+        
+        if ((array.count % 2) != 0) {
+            [originalArray addObject:@"Wildcard"];
+        }
     }
     
     NSMutableArray *randomizedArray = [NSMutableArray new];
