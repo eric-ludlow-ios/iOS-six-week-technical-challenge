@@ -12,5 +12,6 @@
 @interface ListViewController : UIViewController
 
 @property (weak, nonatomic, readonly) IBOutlet UITableView *itemsTableView;
+@property (strong, nonatomic) List *list;
 
 @end

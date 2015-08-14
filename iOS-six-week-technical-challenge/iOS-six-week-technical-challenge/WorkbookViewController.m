@@ -94,8 +94,9 @@
         
         List *list = [ModelController sharedInstance].allLists[indexPath.row];
         
-        destinationViewControllerInstance.title = list.nameOfList;
+        destinationViewControllerInstance.list = list;
         
+        //to be removed
         [ModelController sharedInstance].currentList = list;
     }
 }
