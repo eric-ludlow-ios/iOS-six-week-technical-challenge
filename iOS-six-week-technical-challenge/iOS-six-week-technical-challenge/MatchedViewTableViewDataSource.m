@@ -8,6 +8,8 @@
 
 #import "MatchedViewTableViewDataSource.h"
 #import "MatchedViewTableViewCell.h"
+#import "ModelController.h"
+#import "Item.h"
 
 
 @implementation MatchedViewTableViewDataSource
@@ -21,17 +23,16 @@
     
     MatchedViewTableViewCell *matchedCell = [tableView dequeueReusableCellWithIdentifier:@"matchedItemsCell"];
     
-    //for now, just use textLabel:
     matchedCell.leadingLabel.text = self.randomArray[indexPath.row];
-    matchedCell.imageView.image = [UIImage imageNamed:@"arrows_back_forward"];
+    matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrows_back_forward"];
     matchedCell.trailingLabel.text = self.randomArray[((self.randomArray.count / 2) + indexPath.row)];
     
     return matchedCell;
 }
 
-- (NSArray *)fakeData {
+- (NSArray *)items {
     
-    return @[@"student 1", @"student 2", @"student 3", @"student 4", @"student 5"];
+    return [ModelController sharedInstance].currentItems;
 }
 
 - (NSInteger)numberOfRows {
@@ -41,7 +42,11 @@
 
 - (NSArray *)randomizeArray:(NSArray *)array {
     
-    NSMutableArray *originalArray = [NSMutableArray arrayWithArray:array];
+    NSMutableArray *originalArray = [NSMutableArray new];
+    
+    for (Item *item in array) {
+        [originalArray addObject:item.nameOfItem];
+    }
     
     if ((array.count % 2) != 0) {
         [originalArray addObject:@"Wildcard"];
@@ -62,7 +67,7 @@
 - (NSArray *)randomArray {
     
     if (!_randomArray) {
-        _randomArray = [self randomizeArray:[self fakeData]];
+        _randomArray = [self randomizeArray:[self items]];
         return _randomArray;
     } else {
         return _randomArray;

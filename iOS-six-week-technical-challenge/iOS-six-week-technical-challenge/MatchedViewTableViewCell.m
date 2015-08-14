@@ -11,7 +11,7 @@
 
 @implementation MatchedViewTableViewCell
 
-@synthesize imageView;
+@synthesize matchedImageView;
 
 - (void)awakeFromNib {
     // Initialization code

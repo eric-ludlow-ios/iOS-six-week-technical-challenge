@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * nameOfList;
 @property (nonatomic, retain) NSOrderedSet *myItems;
+
 @end
 
 @interface List (CoreDataGeneratedAccessors)

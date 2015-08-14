@@ -179,7 +179,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yxd-kW-jfd">
-                                <rect key="frame" x="0.0" y="72" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchedItemsCell" id="tZG-Jt-crj" customClass="MatchedViewTableViewCell">
@@ -218,8 +218,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageView" destination="LXy-Jf-W36" id="bcU-Hi-8gw"/>
                                             <outlet property="leadingLabel" destination="SIf-pW-Gsk" id="QsE-b0-ec3"/>
+                                            <outlet property="matchedImageView" destination="LXy-Jf-W36" id="dUo-Pj-dz0"/>
                                             <outlet property="trailingLabel" destination="stq-Ye-hyR" id="apf-JG-MVK"/>
                                         </connections>
                                     </tableViewCell>
@@ -231,14 +231,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Odr-Ql-Cc7" firstAttribute="top" secondItem="yxd-kW-jfd" secondAttribute="bottom" constant="-72" id="Cjb-kq-OkW"/>
                             <constraint firstItem="kYp-nq-HJQ" firstAttribute="leading" secondItem="Eha-7I-Gdj" secondAttribute="leadingMargin" constant="-16" id="LEw-lc-8db"/>
                             <constraint firstItem="yxd-kW-jfd" firstAttribute="top" secondItem="CKL-Vc-9Q2" secondAttribute="bottom" constant="52" id="LUY-ss-0lh"/>
                             <constraint firstItem="yxd-kW-jfd" firstAttribute="leading" secondItem="Eha-7I-Gdj" secondAttribute="leadingMargin" constant="-16" id="Ngo-8V-r16"/>
-                            <constraint firstItem="yxd-kW-jfd" firstAttribute="leading" secondItem="Eha-7I-Gdj" secondAttribute="leadingMargin" constant="-16" id="S2B-LB-Due"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="yxd-kW-jfd" secondAttribute="trailing" constant="-16" id="hzT-UF-D6z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kYp-nq-HJQ" secondAttribute="trailing" constant="-16" id="iHx-OM-Ni5"/>
-                            <constraint firstItem="Odr-Ql-Cc7" firstAttribute="top" secondItem="yxd-kW-jfd" secondAttribute="bottom" constant="-72" id="oP1-Ue-bgf"/>
+                            <constraint firstItem="Odr-Ql-Cc7" firstAttribute="top" secondItem="yxd-kW-jfd" secondAttribute="bottom" id="oP1-Ue-bgf"/>
                             <constraint firstItem="kYp-nq-HJQ" firstAttribute="top" secondItem="CKL-Vc-9Q2" secondAttribute="bottom" constant="8" id="r3z-u6-jhp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yxd-kW-jfd" secondAttribute="trailing" constant="-16" id="tI1-gU-ogG"/>
                         </constraints>

@@ -56,7 +56,6 @@
     if (error) {
         NSLog(@"Error fetching objects: %@", error.localizedDescription);
     }
-    NSLog(@"%@", lists);
     return lists;
 }
 
