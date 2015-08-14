@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="XQEntity" representedClassName="XQEntity" parentEntity="XQList" syncable="YES">
-        <attribute name="nameOfEntity" attributeType="String" syncable="YES"/>
-        <relationship name="entityList" maxCount="1" deletionRule="Nullify" destinationEntity="XQList" inverseName="listEntities" inverseEntity="XQList" syncable="YES"/>
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="nameOfItem" attributeType="String" syncable="YES"/>
+        <relationship name="myList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="myItems" inverseEntity="List" syncable="YES"/>
     </entity>
-    <entity name="XQList" representedClassName="XQList" isAbstract="YES" syncable="YES">
+    <entity name="List" representedClassName="List" syncable="YES">
         <attribute name="nameOfList" attributeType="String" syncable="YES"/>
-        <relationship name="listEntities" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="XQEntity" inverseName="entityList" inverseEntity="XQEntity" syncable="YES"/>
+        <relationship name="myItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Item" inverseName="myList" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="XQEntity" positionX="187" positionY="-0" width="128" height="73"/>
-        <element name="XQList" positionX="-54" positionY="0" width="128" height="73"/>
+        <element name="Item" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="List" positionX="0" positionY="0" width="128" height="75"/>
     </elements>
 </model>

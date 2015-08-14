@@ -14,6 +14,8 @@
 		0F33C00E1B7B9C53009D141D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00D1B7B9C53009D141D /* Images.xcassets */; };
 		0F33C0111B7B9C53009D141D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00F1B7B9C53009D141D /* LaunchScreen.xib */; };
 		0F33C01D1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */; };
+		0FAB61E91B7D78080050AC5B /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB61E81B7D78080050AC5B /* List.m */; };
+		0FAB61EC1B7D78090050AC5B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FAB61EB1B7D78090050AC5B /* Item.m */; };
 		0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */; };
 		0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */; };
 		0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */; };
@@ -23,9 +25,7 @@
 		0FD3DC291B7BDE9A00495D44 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC281B7BDE9A00495D44 /* Stack.m */; };
 		0FD3DC2B1B7BDEBC00495D44 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */; };
 		0FD3DC2E1B7BDEEA00495D44 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */; };
-		0FD3DC3D1B7BEEB300495D44 /* XQListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3C1B7BEEB300495D44 /* XQListController.m */; };
-		0FD3DC401B7C458600495D44 /* XQEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3F1B7C458600495D44 /* XQEntity.m */; };
-		0FD3DC431B7C458600495D44 /* XQList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC421B7C458600495D44 /* XQList.m */; };
+		0FD3DC3D1B7BEEB300495D44 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3C1B7BEEB300495D44 /* ModelController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,10 @@
 		0F33C0161B7B9C53009D141D /* iOS-six-week-technical-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-six-week-technical-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33C01B1B7B9C53009D141D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_six_week_technical_challengeTests.m; sourceTree = "<group>"; };
+		0FAB61E71B7D78080050AC5B /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		0FAB61E81B7D78080050AC5B /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		0FAB61EA1B7D78090050AC5B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		0FAB61EB1B7D78090050AC5B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		0FD3DC081B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkbookViewTableViewDataSource.h; sourceTree = "<group>"; };
 		0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkbookViewTableViewDataSource.m; sourceTree = "<group>"; };
 		0FD3DC0B1B7BAC3200495D44 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -68,12 +72,8 @@
 		0FD3DC281B7BDE9A00495D44 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0FD3DC2D1B7BDEEA00495D44 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		0FD3DC3B1B7BEEB300495D44 /* XQListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQListController.h; sourceTree = "<group>"; };
-		0FD3DC3C1B7BEEB300495D44 /* XQListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQListController.m; sourceTree = "<group>"; };
-		0FD3DC3E1B7C458600495D44 /* XQEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQEntity.h; sourceTree = "<group>"; };
-		0FD3DC3F1B7C458600495D44 /* XQEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQEntity.m; sourceTree = "<group>"; };
-		0FD3DC411B7C458600495D44 /* XQList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XQList.h; sourceTree = "<group>"; };
-		0FD3DC421B7C458600495D44 /* XQList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XQList.m; sourceTree = "<group>"; };
+		0FD3DC3B1B7BEEB300495D44 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
+		0FD3DC3C1B7BEEB300495D44 /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,12 +198,12 @@
 				0FD3DC271B7BDE9A00495D44 /* Stack.h */,
 				0FD3DC281B7BDE9A00495D44 /* Stack.m */,
 				0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */,
-				0FD3DC3E1B7C458600495D44 /* XQEntity.h */,
-				0FD3DC3F1B7C458600495D44 /* XQEntity.m */,
-				0FD3DC411B7C458600495D44 /* XQList.h */,
-				0FD3DC421B7C458600495D44 /* XQList.m */,
-				0FD3DC3B1B7BEEB300495D44 /* XQListController.h */,
-				0FD3DC3C1B7BEEB300495D44 /* XQListController.m */,
+				0FAB61EA1B7D78090050AC5B /* Item.h */,
+				0FAB61EB1B7D78090050AC5B /* Item.m */,
+				0FAB61E71B7D78080050AC5B /* List.h */,
+				0FAB61E81B7D78080050AC5B /* List.m */,
+				0FD3DC3B1B7BEEB300495D44 /* ModelController.h */,
+				0FD3DC3C1B7BEEB300495D44 /* ModelController.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -308,9 +308,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FD3DC431B7C458600495D44 /* XQList.m in Sources */,
-				0FD3DC401B7C458600495D44 /* XQEntity.m in Sources */,
-				0FD3DC3D1B7BEEB300495D44 /* XQListController.m in Sources */,
+				0FAB61E91B7D78080050AC5B /* List.m in Sources */,
+				0FD3DC3D1B7BEEB300495D44 /* ModelController.m in Sources */,
 				0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */,
 				0F33C0091B7B9C53009D141D /* WorkbookViewController.m in Sources */,
 				0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */,
@@ -321,6 +320,7 @@
 				0FD3DC1B1B7BC0DC00495D44 /* MatchedViewTableViewCell.m in Sources */,
 				0FD3DC291B7BDE9A00495D44 /* Stack.m in Sources */,
 				0FD3DC2E1B7BDEEA00495D44 /* Model.xcdatamodeld in Sources */,
+				0FAB61EC1B7D78090050AC5B /* Item.m in Sources */,
 				0F33C0031B7B9C53009D141D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

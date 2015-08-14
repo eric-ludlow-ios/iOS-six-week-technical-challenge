@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XQList.h"
+#import "List.h"
 
 @interface ListViewController : UIViewController
 
-@property (weak, nonatomic, readonly) IBOutlet UITableView *entitiesTableView;
-@property (strong, nonatomic) XQList *list;
+@property (strong, nonatomic) List *list;
+@property (weak, nonatomic, readonly) IBOutlet UITableView *itemsTableView;
 
 @end

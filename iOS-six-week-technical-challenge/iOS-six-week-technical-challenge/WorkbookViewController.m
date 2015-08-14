@@ -8,8 +8,8 @@
 
 #import "WorkbookViewController.h"
 #import "ListViewController.h"
-#import "XQListController.h"
-#import "XQList.h"
+#import "ModelController.h"
+#import "List.h"
 #import "ListViewTableViewDataSource.h"
 
 @interface WorkbookViewController () <UITableViewDelegate>
@@ -52,9 +52,9 @@
                                                               dispatch_async(dispatch_get_main_queue(), ^{
                                                                   UITextField *textField = addNewListNameAlert.textFields[0];
                                                                   
-                                                                  XQList *list = [[XQListController sharedInstance] createList];
+                                                                  List *list = [[ModelController sharedInstance] createList];
                                                                   list.nameOfList = textField.text;
-                                                                  [[XQListController sharedInstance] save];
+                                                                  [[ModelController sharedInstance] save];
                                                                   
                                                                   [self.listsTableView reloadData];
                                                               });
@@ -92,9 +92,11 @@
         
         NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
         
-        XQList *list = [XQListController sharedInstance].allLists[indexPath.row];
+        List *list = [ModelController sharedInstance].allLists[indexPath.row];
         
         destinationViewControllerInstance.list = list;
+        
+        [ModelController sharedInstance].currentList = list;
     }
 }
 

@@ -1,18 +1,18 @@
 //
-//  XQList.m
+//  List.m
 //  iOS-six-week-technical-challenge
 //
-//  Created by Rutan on 8/12/15.
+//  Created by Rutan on 8/13/15.
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "XQList.h"
-#import "XQEntity.h"
+#import "List.h"
+#import "Item.h"
 
 
-@implementation XQList
+@implementation List
 
 @dynamic nameOfList;
-@dynamic listEntities;
+@dynamic myItems;
 
 @end

@@ -7,50 +7,41 @@
 //
 
 #import "ListViewTableViewDataSource.h"
-#import "XQListController.h"
-#import "XQList.h"
-#import "XQEntity.h"
+#import "ModelController.h"
+#import "List.h"
+#import "Item.h"
 
 @implementation ListViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-//    XQList *list = [XQListController sharedInstance].allLists[self.listIndex];
-//    
-//    return list.listEntities.count;
+    NSArray *itemArray = [ModelController sharedInstance].currentItems;
     
-    
-    return [self fakeData].count;
+    return itemArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *entityCell = [tableView dequeueReusableCellWithIdentifier:@"entityCell"];
+    UITableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:@"itemCell"];
     
-//    XQList *list = [XQListController sharedInstance].allLists[self.listIndex];
-//    
-//    XQEntity *entity = list.listEntities[indexPath.row];
-//    
-//    entityCell.textLabel.text = entity.nameOfEntity;
+    NSArray *itemArray = [ModelController sharedInstance].currentItems;
     
-    entityCell.textLabel.text = [self fakeData][indexPath.row];
+    Item *item = itemArray[indexPath.row];
     
-    return entityCell;
+    itemCell.textLabel.text = item.nameOfItem;
+    
+    return itemCell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    XQList *list = [XQListController sharedInstance].allLists[self.listIndex];
-//    XQEntity *entity = list.listEntities[indexPath.row];
-//    
-//    [list removeListEntitiesObject:entity];
+    Item *item = [ModelController sharedInstance].currentItems[indexPath.row];
+    
+    List *list = [ModelController sharedInstance].currentList;
+    
+    [list removeMyItemsObject:item];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-- (NSArray *)fakeData {
-    
-    return @[@"student 1", @"student 2", @"student 3", @"student 4", @"student 5"];
 }
 
 @end

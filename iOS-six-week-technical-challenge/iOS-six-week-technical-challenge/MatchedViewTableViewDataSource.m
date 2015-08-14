@@ -19,7 +19,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MatchedViewTableViewCell *matchedCell = [tableView dequeueReusableCellWithIdentifier:@"matchedEntitiesCell"];
+    MatchedViewTableViewCell *matchedCell = [tableView dequeueReusableCellWithIdentifier:@"matchedItemsCell"];
     
     //for now, just use textLabel:
     matchedCell.leadingLabel.text = self.randomArray[indexPath.row];

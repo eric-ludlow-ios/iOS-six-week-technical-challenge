@@ -7,21 +7,21 @@
 //
 
 #import "WorkbookViewTableViewDataSource.h"
-#import "XQListController.h"
-#import "XQList.h"
+#import "ModelController.h"
+#import "List.h"
 
 @implementation WorkbookViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [XQListController sharedInstance].allLists.count;
+    return [ModelController sharedInstance].allLists.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
     
-    XQList *list = [XQListController sharedInstance].allLists[indexPath.row];
+    List *list = [ModelController sharedInstance].allLists[indexPath.row];
     
     listCell.textLabel.text = list.nameOfList;
     
@@ -30,8 +30,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    XQList *list = [XQListController sharedInstance].allLists[indexPath.row];
-    [[XQListController sharedInstance] removeList:list];
+    List *list = [ModelController sharedInstance].allLists[indexPath.row];
+    [[ModelController sharedInstance] removeList:list];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }

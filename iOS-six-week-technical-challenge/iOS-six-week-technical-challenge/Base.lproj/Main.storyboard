@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="1257" y="364"/>
         </scene>
-        <!--List of Entities-->
+        <!--List of Items-->
         <scene sceneID="7Jl-82-YRC">
             <objects>
                 <viewController id="TsK-jP-B91" customClass="ListViewController" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="entityCell" id="X5c-h1-nOu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="X5c-h1-nOu">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X5c-h1-nOu" id="y1U-Kj-vB7">
@@ -132,16 +132,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="8Ia-sc-A9o" secondAttribute="trailing" constant="-16" id="tky-27-ADk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="List of Entities" id="Jfx-3o-Ezx">
+                    <navigationItem key="navigationItem" title="List of Items" id="Jfx-3o-Ezx">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4w7-0J-onb">
                             <connections>
-                                <action selector="addNewEntityButtonPressed:" destination="TsK-jP-B91" id="5XC-qK-C0K"/>
+                                <action selector="addNewItemButtonPressed:" destination="TsK-jP-B91" id="PDL-bY-6hX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="editButton" destination="cbM-B7-AV7" id="Abq-HO-qPJ"/>
-                        <outlet property="entitiesTableView" destination="8Ia-sc-A9o" id="24k-tC-bjy"/>
+                        <outlet property="itemsTableView" destination="8Ia-sc-A9o" id="t56-dQ-fVx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gaw-RK-vMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +182,7 @@
                                 <rect key="frame" x="0.0" y="72" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchedEntitiesCell" id="tZG-Jt-crj" customClass="MatchedViewTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="matchedItemsCell" id="tZG-Jt-crj" customClass="MatchedViewTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZG-Jt-crj" id="o2B-PW-3mc">

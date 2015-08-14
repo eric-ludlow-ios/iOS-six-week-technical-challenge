@@ -8,13 +8,13 @@
 
 #import "ListViewController.h"
 #import "MatchedViewController.h"
-#import "XQListController.h"
-#import "XQEntity.h"
+#import "ModelController.h"
+#import "Item.h"
 #import "Stack.h"
 
 @interface ListViewController () <UITableViewDelegate, MatchedViewControllerDelegate>
 
-@property (weak, nonatomic, readwrite) IBOutlet UITableView *entitiesTableView;
+@property (weak, nonatomic, readwrite) IBOutlet UITableView *itemsTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
@@ -33,44 +33,42 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
-    [self.entitiesTableView reloadData];
+    [self.itemsTableView reloadData];
 }
 
-- (IBAction)addNewEntityButtonPressed:(id)sender {
+- (IBAction)addNewItemButtonPressed:(id)sender {
     
-    UIAlertController *addNewEntityNameAlert = [UIAlertController alertControllerWithTitle:@"Add Entity to List"
-                                                                                 message:@"Type the name of a new entity:"
+    UIAlertController *addNewItemNameAlert = [UIAlertController alertControllerWithTitle:@"Add Item to List"
+                                                                                 message:@"Type the name of a new person or item:"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
     
-    [addNewEntityNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+    [addNewItemNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
         //configure text field prior to displaying?
     }];
     
-    [addNewEntityNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
+    [addNewItemNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               
                                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                                  UITextField *textField = addNewEntityNameAlert.textFields[0];
+                                                                  UITextField *textField = addNewItemNameAlert.textFields[0];
                                                                   
-                                                                  NSEntityDescription *nsEntity = [NSEntityDescription entityForName:@"XQEntity" inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+                                                                  Item *item = [[ModelController sharedInstance] createItem];
+                                                                  item.nameOfItem = textField.text;
+                                                                  item.myList = self.list;
                                                                   
-                                                                  XQEntity *entity = [[XQEntity alloc] initWithEntity:nsEntity insertIntoManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-                                                                  entity.nameOfEntity = textField.text;
-                                                                  entity.entityList = self.list;
+                                                                  [[ModelController sharedInstance] save];
                                                                   
-                                                                  [[XQListController sharedInstance] save];
-                                                                  
-                                                                  [self.entitiesTableView reloadData];
+                                                                  [self.itemsTableView reloadData];
                                                               });
                                                           }]];
     
-    [addNewEntityNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+    [addNewItemNameAlert addAction:[UIAlertAction actionWithTitle:@"Cancel"
                                                             style:UIAlertActionStyleDestructive
                                                           handler:nil]];
     
-    [self.navigationController presentViewController:addNewEntityNameAlert
+    [self.navigationController presentViewController:addNewItemNameAlert
                                             animated:YES
                                           completion:nil];
 }
@@ -78,7 +76,7 @@
 - (IBAction)editButtonPressed:(id)sender {
     
     BOOL shouldEdit;
-    if (self.entitiesTableView.editing == NO) {
+    if (self.itemsTableView.editing == NO) {
         shouldEdit = YES;
         self.editButton.title = @"Done";
     } else {
@@ -86,7 +84,7 @@
         self.editButton.title = @"Edit";
     }
     
-    [self.entitiesTableView setEditing:shouldEdit animated:YES];
+    [self.itemsTableView setEditing:shouldEdit animated:YES];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XQList.h"
+#import "List.h"
 
 
 @protocol MatchedViewControllerDelegate;
@@ -16,7 +16,7 @@
 @interface MatchedViewController : UIViewController
 
 @property (weak, nonatomic) id<MatchedViewControllerDelegate> delegate;
-@property (strong, nonatomic) XQList *list;
+@property (strong, nonatomic) List *list;
 
 @end
 
