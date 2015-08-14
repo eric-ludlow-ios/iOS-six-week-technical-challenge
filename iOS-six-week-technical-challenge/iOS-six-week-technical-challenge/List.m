@@ -16,17 +16,4 @@
 @dynamic nameOfList;
 @dynamic myItems;
 
-- (void)removeMyItemsObject:(Item *)value {
-    
-    NSMutableOrderedSet *tempOrderedSet = [NSMutableOrderedSet orderedSetWithOrderedSet:[self mutableOrderedSetValueForKey:@"myItems"]];
-    NSUInteger index = [tempOrderedSet indexOfObject:value];
-    if (index != NSNotFound) {
-        NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:index];
-        [self willChange:NSKeyValueChangeRemoval valuesAtIndexes:indexes forKey:@"myItems"];
-        [tempOrderedSet removeObject:value];
-        [self setPrimitiveValue:tempOrderedSet forKey:@"myItems"];
-        [self didChange:NSKeyValueChangeRemoval valuesAtIndexes:indexes forKey:@"myItems"];
-    }
-}
-
 @end

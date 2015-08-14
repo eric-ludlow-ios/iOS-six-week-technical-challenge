@@ -37,9 +37,7 @@
     
     Item *item = [ModelController sharedInstance].currentItems[indexPath.row];
     
-    List *list = [ModelController sharedInstance].currentList;
-    
-    [list removeMyItemsObject:item];
+    [[ModelController sharedInstance] removeItem:item];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }
