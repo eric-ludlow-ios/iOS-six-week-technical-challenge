@@ -104,11 +104,39 @@
 - (NSArray *)randomArray {
     
     if (!_randomArray) {
-        _randomArray = [self randomizeArray:[self items]];
-        return _randomArray;
-    } else {
-        return _randomArray;
+        
+        if ([ModelController sharedInstance].matchType == MatchedViewMatchTypeAssign) {
+            
+            BOOL checkAssignments = YES;
+            
+            while (checkAssignments == YES) {
+                _randomArray = [self randomizeArray:[self items]];
+                checkAssignments = [self isItemAssignedToSelf];
+            }
+        } else {
+            
+            _randomArray = [self randomizeArray:[self items]];
+        }
     }
+    
+    return _randomArray;
+}
+
+- (BOOL)isItemAssignedToSelf {
+    
+    BOOL check = NO;
+    
+    int i = 0;
+    
+    for (Item *item in [self items]) {
+        
+        if ([item.nameOfItem isEqualToString:self.randomArray[i]]) {
+            check = YES;
+        }
+        i++;
+    }
+    
+    return check;
 }
 
 @end
