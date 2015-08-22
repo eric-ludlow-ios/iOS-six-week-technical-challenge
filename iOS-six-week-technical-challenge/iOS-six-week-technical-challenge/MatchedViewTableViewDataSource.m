@@ -8,60 +8,22 @@
 
 #import "MatchedViewTableViewDataSource.h"
 #import "MatchedViewTableViewCell.h"
-#import "ModelController.h"
+#import "ListAndItemController.h"
 #import "Item.h"
+#import "List+ListArrayMethods.h"
 
 
 @implementation MatchedViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [self numberOfRows];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MatchedViewTableViewCell *matchedCell = [tableView dequeueReusableCellWithIdentifier:@"matchedItemsCell"];
-    
-    switch ([ModelController sharedInstance].matchType) {
-        case MatchedViewMatchTypeAssign: {
-            
-            Item *item = [self items][indexPath.row];
-            matchedCell.leadingLabel.text = item.nameOfItem;
-            matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrow_forward"];
-            matchedCell.trailingLabel.text = self.randomArray[indexPath.row];
-            break;
-        }
-        case MatchedViewMatchTypePair:
-            
-            matchedCell.leadingLabel.text = self.randomArray[indexPath.row];
-            matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrows_back_forward"];
-            matchedCell.trailingLabel.text = self.randomArray[[self numberOfRows] + indexPath.row];
-            break;
-            
-        default:
-            break;
-    }
-    
-    
-    
-    return matchedCell;
-}
-
-- (NSArray *)items {
-    
-    return [ModelController sharedInstance].currentItems;
-}
-
-- (NSInteger)numberOfRows {
-    
-    switch ([ModelController sharedInstance].matchType) {
+    switch (self.matchType) {
         case MatchedViewMatchTypeAssign:
         case MatchedViewMatchTypeToList:
             
             return (self.randomArray.count);
             break;
-        
+            
         case MatchedViewMatchTypePair:
             
             return (self.randomArray.count / 2);
@@ -74,69 +36,57 @@
     }
 }
 
-- (NSArray *)randomizeArray:(NSArray *)array {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSMutableArray *originalArray = [NSMutableArray new];
+    MatchedViewTableViewCell *matchedCell = [tableView dequeueReusableCellWithIdentifier:@"matchedItemsCell"];
     
-    for (Item *item in array) {
-        [originalArray addObject:item.nameOfItem];
-    }
-    
-    if ([ModelController sharedInstance].matchType == MatchedViewMatchTypePair) {
-        
-        if ((array.count % 2) != 0) {
-            [originalArray addObject:@"Wildcard"];
+    switch (self.matchType) {
+        case MatchedViewMatchTypeAssign: {
+            
+            Item *item = self.list.myItems.array[indexPath.row];
+            matchedCell.leadingLabel.text = item.nameOfItem;
+            matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrow_forward"];
+            matchedCell.trailingLabel.text = self.randomArray[indexPath.row];
+            break;
         }
+        case MatchedViewMatchTypePair:
+            
+            matchedCell.leadingLabel.text = self.randomArray[indexPath.row * 2];
+            matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrows_back_forward"];
+            matchedCell.trailingLabel.text = self.randomArray[indexPath.row * 2 + 1];
+            break;
+            
+        default:
+            break;
     }
     
-    NSMutableArray *randomizedArray = [NSMutableArray new];
-    
-    int i = 1;
-    
-    for (NSString *string in originalArray) {
-        
-        [randomizedArray insertObject:string atIndex:arc4random_uniform(i)];
-        i++;
-    }
-    return randomizedArray;
+    return matchedCell;
 }
 
 - (NSArray *)randomArray {
     
     if (!_randomArray) {
         
-        if ([ModelController sharedInstance].matchType == MatchedViewMatchTypeAssign) {
+        switch (self.matchType) {
+            case MatchedViewMatchTypeAssign:
+                _randomArray = [self.list myItemsRandomArrayForAssigns];
+                break;
             
-            BOOL checkAssignments = YES;
-            
-            while (checkAssignments == YES) {
-                _randomArray = [self randomizeArray:[self items]];
-                checkAssignments = [self isItemAssignedToSelf];
-            }
-        } else {
-            
-            _randomArray = [self randomizeArray:[self items]];
+            case MatchedViewMatchTypePair:
+                _randomArray = [self.list myItemsRandomArrayForPairs];
+                break;
+                
+            case MatchedViewMatchTypeToList:
+                _randomArray = [self.list myItemsRandomArrayForToList];
+                break;
+                
+            default:
+                _randomArray = @[];
+                break;
         }
     }
     
     return _randomArray;
-}
-
-- (BOOL)isItemAssignedToSelf {
-    
-    BOOL check = NO;
-    
-    int i = 0;
-    
-    for (Item *item in [self items]) {
-        
-        if ([item.nameOfItem isEqualToString:self.randomArray[i]]) {
-            check = YES;
-        }
-        i++;
-    }
-    
-    return check;
 }
 
 @end

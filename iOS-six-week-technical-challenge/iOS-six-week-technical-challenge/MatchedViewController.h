@@ -15,9 +15,10 @@
 
 @interface MatchedViewController : UIViewController
 
+@property (weak, nonatomic, readonly) IBOutlet UITableView *matchTableView;
 @property (weak, nonatomic) id<MatchedViewControllerDelegate> delegate;
 @property (strong, nonatomic) List *list;
-@property (strong, nonatomic) NSString *currentTitle;
+@property (strong, nonatomic) NSString *subtitle;
 
 @end
 

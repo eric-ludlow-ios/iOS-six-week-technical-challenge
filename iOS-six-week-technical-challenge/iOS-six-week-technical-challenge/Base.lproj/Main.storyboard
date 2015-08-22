@@ -8,7 +8,7 @@
         <!--Workbook of Lists-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Workbook of Lists" id="vXZ-lx-hvc" customClass="WorkbookViewController" sceneMemberID="viewController">
+                <viewController title="Workbook of Lists" id="vXZ-lx-hvc" customClass="ListsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -64,14 +64,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <customObject id="MWn-fE-mgg" customClass="WorkbookViewTableViewDataSource"/>
+                <customObject id="MWn-fE-mgg" customClass="ListsViewTableViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="1257" y="364"/>
         </scene>
         <!--List of Items-->
         <scene sceneID="7Jl-82-YRC">
             <objects>
-                <viewController id="TsK-jP-B91" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController id="TsK-jP-B91" customClass="ItemsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n0R-VS-hAO"/>
                         <viewControllerLayoutGuide type="bottom" id="5Gm-Z0-lQM"/>
@@ -149,7 +149,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gaw-RK-vMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="L5f-cb-5nl" customClass="ListViewTableViewDataSource"/>
+                <customObject id="L5f-cb-5nl" customClass="ItemsViewTableViewDataSource"/>
             </objects>
             <point key="canvasLocation" x="1945" y="364"/>
         </scene>

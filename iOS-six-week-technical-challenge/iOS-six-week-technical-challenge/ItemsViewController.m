@@ -6,25 +6,27 @@
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "ListViewController.h"
+#import "ItemsViewController.h"
 #import "MatchedViewController.h"
-#import "ModelController.h"
+#import "ListAndItemController.h"
 #import "Item.h"
 #import "Stack.h"
+#import "MatchedViewTableViewDataSource.h"
+#import "ItemsViewTableViewDataSource.h"
 
-@interface ListViewController () <UITableViewDelegate, MatchedViewControllerDelegate>
+@interface ItemsViewController () <UITableViewDelegate, MatchedViewControllerDelegate>
 
 @property (weak, nonatomic, readwrite) IBOutlet UITableView *itemsTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
-@implementation ListViewController
+@implementation ItemsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+        
     self.title = self.list.nameOfList;
         
     self.editButton.title = @"Edit";
@@ -51,14 +53,15 @@
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               
+                                                              UITextField *textField = addNewItemNameAlert.textFields[0];
+                                                              
+                                                              Item *item = [[ListAndItemController sharedInstance] createItem];
+                                                              item.nameOfItem = textField.text;
+                                                              item.myList = self.list;
+                                                              
+                                                              [[ListAndItemController sharedInstance] save];
+                                                              
                                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                                  UITextField *textField = addNewItemNameAlert.textFields[0];
-                                                                  
-                                                                  Item *item = [[ModelController sharedInstance] createItem];
-                                                                  item.nameOfItem = textField.text;
-                                                                  item.myList = [ModelController sharedInstance].currentList;
-                                                                  
-                                                                  [[ModelController sharedInstance] save];
                                                                   
                                                                   [self.itemsTableView reloadData];
                                                               });
@@ -89,35 +92,35 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    MatchedViewController *matchedViewControllerInstance = segue.destinationViewController;
+    MatchedViewController *destinationMatchedViewControllerInstance = segue.destinationViewController;
     
-    matchedViewControllerInstance.delegate = self;
+    destinationMatchedViewControllerInstance.delegate = self;
     
-    NSString *subtitle = @"subtitle";
+    MatchedViewTableViewDataSource *matchDataSource = destinationMatchedViewControllerInstance.matchTableView.dataSource;
+    
+    destinationMatchedViewControllerInstance.list = self.list;
+    matchDataSource.list = self.list;
 
     if ([segue.identifier isEqualToString:@"segueAssignments"]) {
         
-        subtitle = @"Assignments";
+        destinationMatchedViewControllerInstance.subtitle = @"Assignments";
         
-        [ModelController sharedInstance].matchType = MatchedViewMatchTypeAssign;
+        matchDataSource.matchType = MatchedViewMatchTypeAssign;
     }
 
     if ([segue.identifier isEqualToString:@"seguePairings"]) {
         
-        subtitle = @"Pairings";
+        destinationMatchedViewControllerInstance.subtitle = @"Pairings";
         
-        [ModelController sharedInstance].matchType = MatchedViewMatchTypePair;
+        matchDataSource.matchType = MatchedViewMatchTypePair;
     }
     
     if ([segue.identifier isEqualToString:@"segueToList"]) {
         
-        subtitle = @"Assign To List";
+        destinationMatchedViewControllerInstance.subtitle = @"Assign To List";
         
-        [ModelController sharedInstance].matchType = MatchedViewMatchTypeToList;
+        matchDataSource.matchType = MatchedViewMatchTypeToList;
     }
-    
-    matchedViewControllerInstance.currentTitle = [NSString stringWithFormat:@"%@: %@", self.title, subtitle];
-
 }
 
 - (void)matchedViewControllerDidFinish:(MatchedViewController *)matchedViewController {

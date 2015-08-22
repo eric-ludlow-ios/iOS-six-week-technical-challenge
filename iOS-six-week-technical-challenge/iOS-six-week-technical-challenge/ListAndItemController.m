@@ -1,15 +1,15 @@
 //
-//  ModelController.m
+//  ListAndItemController.m
 //  iOS-six-week-technical-challenge
 //
 //  Created by Rutan on 8/12/15.
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "ModelController.h"
+#import "ListAndItemController.h"
 #import "Stack.h"
 
-@interface ModelController ()
+@interface ListAndItemController ()
 
 @property (strong, nonatomic) NSArray *allLists;
 @property (strong, nonatomic) NSArray *currentItems;
@@ -17,13 +17,13 @@
 @end
 
 
-@implementation ModelController
+@implementation ListAndItemController
 
-+ (ModelController *)sharedInstance {
-    static ModelController *sharedInstance = nil;
++ (ListAndItemController *)sharedInstance {
+    static ListAndItemController *sharedInstance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [ModelController new];
+        sharedInstance = [ListAndItemController new];
     });
     
     return sharedInstance;

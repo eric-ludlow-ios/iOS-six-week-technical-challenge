@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @import UIKit;
+#import "List.h"
 
 typedef NS_ENUM(NSInteger, MatchedViewMatchType) {
     MatchedViewMatchTypeAssign = 0,
@@ -20,5 +21,6 @@ typedef NS_ENUM(NSInteger, MatchedViewMatchType) {
 
 @property (strong, nonatomic) NSArray *randomArray;
 @property (nonatomic) MatchedViewMatchType matchType;
+@property (strong, nonatomic) List *list;
 
 @end

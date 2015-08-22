@@ -7,8 +7,7 @@
 //
 
 #import "List.h"
-#import "Item.h"
-#import "ModelController.h"
+#import "ListAndItemController.h"
 
 
 @implementation List

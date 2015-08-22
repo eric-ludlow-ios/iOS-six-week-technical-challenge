@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "WorkbookViewTableViewDataSource.h"
-#import "ModelController.h"
+#import "ListsViewTableViewDataSource.h"
+#import "ListAndItemController.h"
 #import "List.h"
 
-@implementation WorkbookViewTableViewDataSource
+@implementation ListsViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [ModelController sharedInstance].allLists.count;
+    return [ListAndItemController sharedInstance].allLists.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *listCell = [tableView dequeueReusableCellWithIdentifier:@"listCell"];
     
-    List *list = [ModelController sharedInstance].allLists[indexPath.row];
+    List *list = [ListAndItemController sharedInstance].allLists[indexPath.row];
     
     listCell.textLabel.text = list.nameOfList;
     
@@ -30,8 +30,8 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    List *list = [ModelController sharedInstance].allLists[indexPath.row];
-    [[ModelController sharedInstance] removeList:list];
+    List *list = [ListAndItemController sharedInstance].allLists[indexPath.row];
+    [[ListAndItemController sharedInstance] removeList:list];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }

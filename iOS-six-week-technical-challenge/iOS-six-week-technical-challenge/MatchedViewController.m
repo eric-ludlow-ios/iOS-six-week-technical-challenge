@@ -11,7 +11,7 @@
 
 @interface MatchedViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *matchTableView;
+@property (weak, nonatomic, readwrite) IBOutlet UITableView *matchTableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 
 @end
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = self.currentTitle;
+    self.navigationItem.title = [NSString stringWithFormat:@"%@: %@", self.list.nameOfList, self.subtitle];
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
