@@ -6,27 +6,26 @@
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "ListViewTableViewDataSource.h"
-#import "ModelController.h"
+#import "ItemsViewTableViewDataSource.h"
+#import "ListAndItemController.h"
 #import "List.h"
 #import "Item.h"
 
-@implementation ListViewTableViewDataSource
+@implementation ItemsViewTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSArray *itemArray = [ModelController sharedInstance].currentItems;
-    
-    return itemArray.count;
+    return self.list.myItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *itemCell = [tableView dequeueReusableCellWithIdentifier:@"itemCell"];
     
-    NSArray *itemArray = [ModelController sharedInstance].currentItems;
+    //to delete:
+    //NSArray *itemArray = [ListAndItemController sharedInstance].currentItems;
     
-    Item *item = itemArray[indexPath.row];
+    Item *item = self.list.myItems[indexPath.row];
     
     itemCell.textLabel.text = item.nameOfItem;
     
@@ -35,9 +34,9 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    Item *item = [ModelController sharedInstance].currentItems[indexPath.row];
+    Item *item = self.list.myItems[indexPath.row];
     
-    [[ModelController sharedInstance] removeItem:item];
+    [[ListAndItemController sharedInstance] removeItem:item];
     
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 }

@@ -1,5 +1,5 @@
 //
-//  ListViewTableViewDataSource.h
+//  WorkbookViewTableViewDataSource.h
 //  iOS-six-week-technical-challenge
 //
 //  Created by Rutan on 8/12/15.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 @import UIKit;
 
-@interface ListViewTableViewDataSource : NSObject <UITableViewDataSource>
+@interface ListsViewTableViewDataSource : NSObject <UITableViewDataSource>
 
 @end

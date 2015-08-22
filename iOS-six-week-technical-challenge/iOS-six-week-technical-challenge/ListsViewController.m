@@ -6,20 +6,20 @@
 //  Copyright (c) 2015 Eric Ludlow. All rights reserved.
 //
 
-#import "WorkbookViewController.h"
-#import "ListViewController.h"
-#import "ModelController.h"
+#import "ListsViewController.h"
+#import "ItemsViewController.h"
+#import "ListAndItemController.h"
 #import "List.h"
-#import "ListViewTableViewDataSource.h"
+#import "ItemsViewTableViewDataSource.h"
 
-@interface WorkbookViewController () <UITableViewDelegate>
+@interface ListsViewController () <UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *listsTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
 
-@implementation WorkbookViewController
+@implementation ListsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,30 +31,32 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
+    //do i need this here?
     [self.listsTableView reloadData];
 }
 
 - (IBAction)addNewListPressed:(id)sender {
     
-    UIAlertController *addNewListNameAlert = [UIAlertController alertControllerWithTitle:@"Add List"
+    UIAlertController *addNewListNameAlert = [UIAlertController alertControllerWithTitle:@"New List"
                                                                                  message:@"Type the name of a new list:"
                                                                           preferredStyle:UIAlertControllerStyleAlert];
     
     [addNewListNameAlert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         
-        //configure text field prior to displaying?
+        textField.placeholder = @"'iOS3 Cohort' or 'Th Night Pickup Group'";
     }];
     
     [addNewListNameAlert addAction:[UIAlertAction actionWithTitle:@"Add"
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction *action) {
                                                               
+                                                              UITextField *textField = addNewListNameAlert.textFields[0];
+                                                              
+                                                              List *list = [[ListAndItemController sharedInstance] createList];
+                                                              list.nameOfList = textField.text;
+                                                              [[ListAndItemController sharedInstance] save];
+
                                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                                  UITextField *textField = addNewListNameAlert.textFields[0];
-                                                                  
-                                                                  List *list = [[ModelController sharedInstance] createList];
-                                                                  list.nameOfList = textField.text;
-                                                                  [[ModelController sharedInstance] save];
                                                                   
                                                                   [self.listsTableView reloadData];
                                                               });
@@ -88,15 +90,13 @@
     
     if ([segue.identifier isEqualToString:@"segueViewList"]) {
         
-        ListViewController *destinationViewControllerInstance = segue.destinationViewController;
-        
+        ItemsViewController *destinationItemsViewControllerInstance = segue.destinationViewController;
+
         NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
         
-        List *list = [ModelController sharedInstance].allLists[indexPath.row];
+        List *list = [ListAndItemController sharedInstance].allLists[indexPath.row];
         
-        destinationViewControllerInstance.title = list.nameOfList;
-        
-        [ModelController sharedInstance].currentList = list;
+        destinationItemsViewControllerInstance.list = list;
     }
 }
 

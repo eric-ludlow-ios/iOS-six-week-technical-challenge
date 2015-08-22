@@ -9,23 +9,24 @@
 /* Begin PBXBuildFile section */
 		0F33C0031B7B9C53009D141D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C0021B7B9C53009D141D /* main.m */; };
 		0F33C0061B7B9C53009D141D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C0051B7B9C53009D141D /* AppDelegate.m */; };
-		0F33C0091B7B9C53009D141D /* WorkbookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C0081B7B9C53009D141D /* WorkbookViewController.m */; };
+		0F33C0091B7B9C53009D141D /* ListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C0081B7B9C53009D141D /* ListsViewController.m */; };
 		0F33C00C1B7B9C53009D141D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00A1B7B9C53009D141D /* Main.storyboard */; };
 		0F33C00E1B7B9C53009D141D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00D1B7B9C53009D141D /* Images.xcassets */; };
 		0F33C0111B7B9C53009D141D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F33C00F1B7B9C53009D141D /* LaunchScreen.xib */; };
 		0F33C01D1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */; };
+		0F5800821B87E1EF00D5A0FE /* List+ListArrayMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5800811B87E1EF00D5A0FE /* List+ListArrayMethods.m */; };
 		0F7997751B7D975900D5922E /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7997741B7D975900D5922E /* Item.m */; };
 		0F7997781B7D975900D5922E /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F7997771B7D975900D5922E /* List.m */; };
-		0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */; };
-		0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */; };
-		0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */; };
+		0FD3DC0A1B7BAB1D00495D44 /* ListsViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC091B7BAB1D00495D44 /* ListsViewTableViewDataSource.m */; };
+		0FD3DC0D1B7BAC3200495D44 /* ItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0C1B7BAC3200495D44 /* ItemsViewController.m */; };
+		0FD3DC101B7BB26C00495D44 /* ItemsViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC0F1B7BB26C00495D44 /* ItemsViewTableViewDataSource.m */; };
 		0FD3DC151B7BC06200495D44 /* MatchedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC141B7BC06200495D44 /* MatchedViewController.m */; };
 		0FD3DC181B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC171B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m */; };
 		0FD3DC1B1B7BC0DC00495D44 /* MatchedViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC1A1B7BC0DC00495D44 /* MatchedViewTableViewCell.m */; };
 		0FD3DC291B7BDE9A00495D44 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC281B7BDE9A00495D44 /* Stack.m */; };
 		0FD3DC2B1B7BDEBC00495D44 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */; };
 		0FD3DC2E1B7BDEEA00495D44 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC2C1B7BDEEA00495D44 /* Model.xcdatamodeld */; };
-		0FD3DC3D1B7BEEB300495D44 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3C1B7BEEB300495D44 /* ModelController.m */; };
+		0FD3DC3D1B7BEEB300495D44 /* ListAndItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FD3DC3C1B7BEEB300495D44 /* ListAndItemController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,24 +45,26 @@
 		0F33C0021B7B9C53009D141D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0F33C0041B7B9C53009D141D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0F33C0051B7B9C53009D141D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0F33C0071B7B9C53009D141D /* WorkbookViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkbookViewController.h; sourceTree = "<group>"; };
-		0F33C0081B7B9C53009D141D /* WorkbookViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkbookViewController.m; sourceTree = "<group>"; };
+		0F33C0071B7B9C53009D141D /* ListsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListsViewController.h; sourceTree = "<group>"; };
+		0F33C0081B7B9C53009D141D /* ListsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListsViewController.m; sourceTree = "<group>"; };
 		0F33C00B1B7B9C53009D141D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0F33C00D1B7B9C53009D141D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F33C0101B7B9C53009D141D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0F33C0161B7B9C53009D141D /* iOS-six-week-technical-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-six-week-technical-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F33C01B1B7B9C53009D141D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F33C01C1B7B9C53009D141D /* iOS_six_week_technical_challengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_six_week_technical_challengeTests.m; sourceTree = "<group>"; };
+		0F5800801B87E1EF00D5A0FE /* List+ListArrayMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "List+ListArrayMethods.h"; sourceTree = "<group>"; };
+		0F5800811B87E1EF00D5A0FE /* List+ListArrayMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "List+ListArrayMethods.m"; sourceTree = "<group>"; };
 		0F7997731B7D975900D5922E /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		0F7997741B7D975900D5922E /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		0F7997761B7D975900D5922E /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		0F7997771B7D975900D5922E /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
-		0FD3DC081B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkbookViewTableViewDataSource.h; sourceTree = "<group>"; };
-		0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkbookViewTableViewDataSource.m; sourceTree = "<group>"; };
-		0FD3DC0B1B7BAC3200495D44 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
-		0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
-		0FD3DC0E1B7BB26C00495D44 /* ListViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewTableViewDataSource.h; sourceTree = "<group>"; };
-		0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewTableViewDataSource.m; sourceTree = "<group>"; };
+		0FD3DC081B7BAB1D00495D44 /* ListsViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListsViewTableViewDataSource.h; sourceTree = "<group>"; };
+		0FD3DC091B7BAB1D00495D44 /* ListsViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListsViewTableViewDataSource.m; sourceTree = "<group>"; };
+		0FD3DC0B1B7BAC3200495D44 /* ItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewController.h; sourceTree = "<group>"; };
+		0FD3DC0C1B7BAC3200495D44 /* ItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewController.m; sourceTree = "<group>"; };
+		0FD3DC0E1B7BB26C00495D44 /* ItemsViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsViewTableViewDataSource.h; sourceTree = "<group>"; };
+		0FD3DC0F1B7BB26C00495D44 /* ItemsViewTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsViewTableViewDataSource.m; sourceTree = "<group>"; };
 		0FD3DC131B7BC06200495D44 /* MatchedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchedViewController.h; sourceTree = "<group>"; };
 		0FD3DC141B7BC06200495D44 /* MatchedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchedViewController.m; sourceTree = "<group>"; };
 		0FD3DC161B7BC0AD00495D44 /* MatchedViewTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchedViewTableViewDataSource.h; sourceTree = "<group>"; };
@@ -72,8 +75,8 @@
 		0FD3DC281B7BDE9A00495D44 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		0FD3DC2A1B7BDEBC00495D44 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0FD3DC2D1B7BDEEA00495D44 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		0FD3DC3B1B7BEEB300495D44 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
-		0FD3DC3C1B7BEEB300495D44 /* ModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		0FD3DC3B1B7BEEB300495D44 /* ListAndItemController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListAndItemController.h; sourceTree = "<group>"; };
+		0FD3DC3C1B7BEEB300495D44 /* ListAndItemController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListAndItemController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +123,8 @@
 				0F33C0041B7B9C53009D141D /* AppDelegate.h */,
 				0F33C0051B7B9C53009D141D /* AppDelegate.m */,
 				0F33C00A1B7B9C53009D141D /* Main.storyboard */,
-				0FD3DC111B7BC00F00495D44 /* Workbook View */,
-				0FD3DC121B7BC01F00495D44 /* List View */,
+				0FD3DC111B7BC00F00495D44 /* Lists View */,
+				0FD3DC121B7BC01F00495D44 /* Items View */,
 				0FD3DC1C1B7BC0E900495D44 /* Matched View */,
 				0FD3DC201B7BD8CC00495D44 /* Models */,
 				0F33C00D1B7B9C53009D141D /* Images.xcassets */,
@@ -157,26 +160,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0FD3DC111B7BC00F00495D44 /* Workbook View */ = {
+		0FD3DC111B7BC00F00495D44 /* Lists View */ = {
 			isa = PBXGroup;
 			children = (
-				0F33C0071B7B9C53009D141D /* WorkbookViewController.h */,
-				0F33C0081B7B9C53009D141D /* WorkbookViewController.m */,
-				0FD3DC081B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.h */,
-				0FD3DC091B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m */,
+				0F33C0071B7B9C53009D141D /* ListsViewController.h */,
+				0F33C0081B7B9C53009D141D /* ListsViewController.m */,
+				0FD3DC081B7BAB1D00495D44 /* ListsViewTableViewDataSource.h */,
+				0FD3DC091B7BAB1D00495D44 /* ListsViewTableViewDataSource.m */,
 			);
-			name = "Workbook View";
+			name = "Lists View";
 			sourceTree = "<group>";
 		};
-		0FD3DC121B7BC01F00495D44 /* List View */ = {
+		0FD3DC121B7BC01F00495D44 /* Items View */ = {
 			isa = PBXGroup;
 			children = (
-				0FD3DC0B1B7BAC3200495D44 /* ListViewController.h */,
-				0FD3DC0C1B7BAC3200495D44 /* ListViewController.m */,
-				0FD3DC0E1B7BB26C00495D44 /* ListViewTableViewDataSource.h */,
-				0FD3DC0F1B7BB26C00495D44 /* ListViewTableViewDataSource.m */,
+				0FD3DC0B1B7BAC3200495D44 /* ItemsViewController.h */,
+				0FD3DC0C1B7BAC3200495D44 /* ItemsViewController.m */,
+				0FD3DC0E1B7BB26C00495D44 /* ItemsViewTableViewDataSource.h */,
+				0FD3DC0F1B7BB26C00495D44 /* ItemsViewTableViewDataSource.m */,
 			);
-			name = "List View";
+			name = "Items View";
 			sourceTree = "<group>";
 		};
 		0FD3DC1C1B7BC0E900495D44 /* Matched View */ = {
@@ -202,8 +205,10 @@
 				0F7997741B7D975900D5922E /* Item.m */,
 				0F7997761B7D975900D5922E /* List.h */,
 				0F7997771B7D975900D5922E /* List.m */,
-				0FD3DC3B1B7BEEB300495D44 /* ModelController.h */,
-				0FD3DC3C1B7BEEB300495D44 /* ModelController.m */,
+				0F5800801B87E1EF00D5A0FE /* List+ListArrayMethods.h */,
+				0F5800811B87E1EF00D5A0FE /* List+ListArrayMethods.m */,
+				0FD3DC3B1B7BEEB300495D44 /* ListAndItemController.h */,
+				0FD3DC3C1B7BEEB300495D44 /* ListAndItemController.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -309,12 +314,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7997751B7D975900D5922E /* Item.m in Sources */,
-				0FD3DC3D1B7BEEB300495D44 /* ModelController.m in Sources */,
-				0FD3DC0D1B7BAC3200495D44 /* ListViewController.m in Sources */,
-				0F33C0091B7B9C53009D141D /* WorkbookViewController.m in Sources */,
-				0FD3DC0A1B7BAB1D00495D44 /* WorkbookViewTableViewDataSource.m in Sources */,
-				0FD3DC101B7BB26C00495D44 /* ListViewTableViewDataSource.m in Sources */,
+				0FD3DC3D1B7BEEB300495D44 /* ListAndItemController.m in Sources */,
+				0FD3DC0D1B7BAC3200495D44 /* ItemsViewController.m in Sources */,
+				0F33C0091B7B9C53009D141D /* ListsViewController.m in Sources */,
+				0FD3DC0A1B7BAB1D00495D44 /* ListsViewTableViewDataSource.m in Sources */,
+				0FD3DC101B7BB26C00495D44 /* ItemsViewTableViewDataSource.m in Sources */,
 				0FD3DC181B7BC0AD00495D44 /* MatchedViewTableViewDataSource.m in Sources */,
+				0F5800821B87E1EF00D5A0FE /* List+ListArrayMethods.m in Sources */,
 				0F7997781B7D975900D5922E /* List.m in Sources */,
 				0F33C0061B7B9C53009D141D /* AppDelegate.m in Sources */,
 				0FD3DC151B7BC06200495D44 /* MatchedViewController.m in Sources */,

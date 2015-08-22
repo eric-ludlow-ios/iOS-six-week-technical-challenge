@@ -1,5 +1,5 @@
 //
-//  ListViewController.h
+//  ViewController.h
 //  iOS-six-week-technical-challenge
 //
 //  Created by Rutan on 8/12/15.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "List.h"
 
-@interface ListViewController : UIViewController
-
-@property (weak, nonatomic, readonly) IBOutlet UITableView *itemsTableView;
+@interface ListsViewController : UIViewController
 
 @end
