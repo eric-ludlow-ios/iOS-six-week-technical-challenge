@@ -12,7 +12,7 @@
 @interface ItemsViewController : UIViewController
 
 //should be able to delete this public property??
-@property (weak, nonatomic, readonly) IBOutlet UITableView *itemsTableView;
+@property (weak, nonatomic) IBOutlet UITableView *itemsTableView;
 
 @property (strong, nonatomic) List *list;
 

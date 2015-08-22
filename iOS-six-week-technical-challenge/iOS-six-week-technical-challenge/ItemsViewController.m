@@ -16,7 +16,6 @@
 
 @interface ItemsViewController () <UITableViewDelegate, MatchedViewControllerDelegate>
 
-@property (weak, nonatomic, readwrite) IBOutlet UITableView *itemsTableView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *editButton;
 
 @end
@@ -26,7 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-        
+    
+    ItemsViewTableViewDataSource *itemsDataSource = self.itemsTableView.dataSource;
+    itemsDataSource.list = self.list;
+    
     self.title = self.list.nameOfList;
         
     self.editButton.title = @"Edit";
@@ -95,31 +97,22 @@
     MatchedViewController *destinationMatchedViewControllerInstance = segue.destinationViewController;
     
     destinationMatchedViewControllerInstance.delegate = self;
-    
-    MatchedViewTableViewDataSource *matchDataSource = destinationMatchedViewControllerInstance.matchTableView.dataSource;
-    
+        
     destinationMatchedViewControllerInstance.list = self.list;
-    matchDataSource.list = self.list;
 
     if ([segue.identifier isEqualToString:@"segueAssignments"]) {
         
-        destinationMatchedViewControllerInstance.subtitle = @"Assignments";
-        
-        matchDataSource.matchType = MatchedViewMatchTypeAssign;
+        destinationMatchedViewControllerInstance.matchType = MatchedViewMatchTypeAssign;
     }
 
     if ([segue.identifier isEqualToString:@"seguePairings"]) {
         
-        destinationMatchedViewControllerInstance.subtitle = @"Pairings";
-        
-        matchDataSource.matchType = MatchedViewMatchTypePair;
+        destinationMatchedViewControllerInstance.matchType = MatchedViewMatchTypePair;
     }
     
     if ([segue.identifier isEqualToString:@"segueToList"]) {
         
-        destinationMatchedViewControllerInstance.subtitle = @"Assign To List";
-        
-        matchDataSource.matchType = MatchedViewMatchTypeToList;
+        destinationMatchedViewControllerInstance.matchType = MatchedViewMatchTypeToList;
     }
 }
 

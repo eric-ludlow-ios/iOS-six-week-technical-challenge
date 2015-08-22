@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "List.h"
+#import "MatchedViewTableViewDataSource.h"
 
 
 @protocol MatchedViewControllerDelegate;
@@ -18,7 +19,7 @@
 @property (weak, nonatomic, readonly) IBOutlet UITableView *matchTableView;
 @property (weak, nonatomic) id<MatchedViewControllerDelegate> delegate;
 @property (strong, nonatomic) List *list;
-@property (strong, nonatomic) NSString *subtitle;
+@property (nonatomic) MatchedViewMatchType matchType;
 
 @end
 

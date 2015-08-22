@@ -91,14 +91,12 @@
     if ([segue.identifier isEqualToString:@"segueViewList"]) {
         
         ItemsViewController *destinationItemsViewControllerInstance = segue.destinationViewController;
-        ItemsViewTableViewDataSource *itemsDataSource = destinationItemsViewControllerInstance.itemsTableView.dataSource;
 
         NSIndexPath *indexPath = [self.listsTableView indexPathForSelectedRow];
         
         List *list = [ListAndItemController sharedInstance].allLists[indexPath.row];
         
         destinationItemsViewControllerInstance.list = list;
-        itemsDataSource.list = list;
     }
 }
 

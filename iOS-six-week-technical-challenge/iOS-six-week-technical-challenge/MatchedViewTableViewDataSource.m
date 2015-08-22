@@ -46,16 +46,19 @@
             Item *item = self.list.myItems.array[indexPath.row];
             matchedCell.leadingLabel.text = item.nameOfItem;
             matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrow_forward"];
-            matchedCell.trailingLabel.text = self.randomArray[indexPath.row];
+            item = self.randomArray[indexPath.row];
+            matchedCell.trailingLabel.text = item.nameOfItem;
             break;
         }
-        case MatchedViewMatchTypePair:
+        case MatchedViewMatchTypePair: {
             
-            matchedCell.leadingLabel.text = self.randomArray[indexPath.row * 2];
+            Item *item = self.randomArray[indexPath.row * 2];
+            matchedCell.leadingLabel.text = item.nameOfItem;
             matchedCell.matchedImageView.image = [UIImage imageNamed:@"arrows_back_forward"];
-            matchedCell.trailingLabel.text = self.randomArray[indexPath.row * 2 + 1];
+            item = self.randomArray[indexPath.row * 2 + 1];
+            matchedCell.trailingLabel.text =item.nameOfItem;
             break;
-            
+        }
         default:
             break;
     }

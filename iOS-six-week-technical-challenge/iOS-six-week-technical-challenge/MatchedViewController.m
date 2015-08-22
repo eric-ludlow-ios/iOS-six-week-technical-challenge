@@ -7,7 +7,6 @@
 //
 
 #import "MatchedViewController.h"
-#import "MatchedViewTableViewDataSource.h"
 
 @interface MatchedViewController ()
 
@@ -24,7 +23,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = [NSString stringWithFormat:@"%@: %@", self.list.nameOfList, self.subtitle];
+    MatchedViewTableViewDataSource *matchDataSource = self.matchTableView.dataSource;
+    matchDataSource.list = self.list;
+    matchDataSource.matchType = self.matchType;
+    
+    NSString *subtitle = @"subtitle";
+    
+    switch (self.matchType) {
+            
+        case MatchedViewMatchTypeAssign:
+            subtitle = @"Assignments";
+            break;
+            
+        case MatchedViewMatchTypePair:
+            subtitle = @"Pairs";
+            break;
+            
+        case MatchedViewMatchTypeToList:
+            subtitle = @"To List";
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.navigationItem.title = [NSString stringWithFormat:@"%@: %@", self.list.nameOfList, subtitle];
 }
 
 - (IBAction)doneButtonPressed:(id)sender {
